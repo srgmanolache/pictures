@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Image</title>
+  <title>My Image Slideshow</title>
 
-  <!-- Optional: make it fullscreen on iPad -->
+  <!-- Fullscreen Web Clip on iPad -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <!-- Style to center and scale image -->
   <style>
     body {
       margin: 0;
@@ -21,12 +20,38 @@
     }
     img {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 100vh;
     }
   </style>
 </head>
 <body>
-  <!-- Your image -->
-  <img src="image.jpg" alt="My Image">
+  <img id="slide" src="image.jpg" alt="Slideshow Image">
+
+  <script>
+    // List of all 12 images
+    const images = [
+      "image.jpg",   // first image
+      "image2.jpg",
+      "image3.jpg",
+      "image4.jpg",
+      "image5.jpg",
+      "image6.jpg",
+      "image7.jpg",
+      "image8.jpg",
+      "image9.jpg",
+      "image10.jpg",
+      "image11.jpg",
+      "image12.jpg"
+    ];
+
+    let i = 0; // start with first image
+    const slide = document.getElementById("slide");
+
+    // Change image every 3 seconds (3000ms)
+    setInterval(() => {
+      i = (i + 1) % images.length;
+      slide.src = images[i];
+    }, 3000);
+  </script>
 </body>
 </html>
